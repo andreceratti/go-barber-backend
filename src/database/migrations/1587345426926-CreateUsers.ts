@@ -1,10 +1,4 @@
-import {
-  MigrationInterface,
-  QueryRunner,
-  Table,
-  CreateDateColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export default class CreateUsers1587345426926 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
