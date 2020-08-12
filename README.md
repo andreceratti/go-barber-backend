@@ -7,7 +7,7 @@
 
 Projeto desenvolvido nas aulas GoStack do curso React e Node da RocketSeat para agendamento em uma barbearia.
 
-# TODO
+# TO DO
 
 ## Recuperação de senha
 
