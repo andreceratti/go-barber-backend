@@ -13,8 +13,8 @@ Projeto desenvolvido nas aulas GoStack do curso React e Node da RocketSeat para 
 
 **RF**
 
-- O usuário deve poder recuperar sua senha informando o seu e-mail.
-- O usuário deve receber um e-mail com instruções de recuperação de senha.
+- O usuário deve poder recuperar sua senha informando o seu e-mail.✔️
+- O usuário deve receber um e-mail com instruções de recuperação de senha.✔️
 - O usuário deve poder resetar sua senha.
 
 **RNF**
