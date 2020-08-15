@@ -5,16 +5,21 @@ import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 
 import UpdateAvatarService from './UpdateUserAvatarService';
 
-describe('UpdateUserAvatar', () => {
-  it('should be able to update a avatar', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-    const fakeStorageProvider = new FakeStorageProvider();
+let fakeUsersRepository: FakeUsersRepository;
+let fakeStorageProvider: FakeStorageProvider;
+let updateUserAvatar: UpdateAvatarService;
 
-    const updateUserAvatar = new UpdateAvatarService(
+describe('UpdateUserAvatar', () => {
+  beforeEach(() => {
+    fakeUsersRepository = new FakeUsersRepository();
+    fakeStorageProvider = new FakeStorageProvider();
+
+    updateUserAvatar = new UpdateAvatarService(
       fakeUsersRepository,
       fakeStorageProvider,
     );
-
+  });
+  it('should be able to update a avatar', async () => {
     const user = await fakeUsersRepository.create({
       name: 'Minalva Cruz',
       email: 'mimi@bol.com',
@@ -29,14 +34,6 @@ describe('UpdateUserAvatar', () => {
     expect(user.avatar).toBe('meu_avatar_maneiro.bmp');
   });
   it('should not be able to update a avatar without a user', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-    const fakeStorageProvider = new FakeStorageProvider();
-
-    const updateUserAvatar = new UpdateAvatarService(
-      fakeUsersRepository,
-      fakeStorageProvider,
-    );
-
     await expect(
       updateUserAvatar.execute({
         user_id: 'user.id',
@@ -46,15 +43,7 @@ describe('UpdateUserAvatar', () => {
   });
 
   it('should delete old avatar when updating a new one', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-    const fakeStorageProvider = new FakeStorageProvider();
-
     const deleteFile = jest.spyOn(fakeStorageProvider, 'deleteFile');
-
-    const updateUserAvatar = new UpdateAvatarService(
-      fakeUsersRepository,
-      fakeStorageProvider,
-    );
 
     const user = await fakeUsersRepository.create({
       name: 'Minalva Cruz',
