@@ -44,7 +44,6 @@ class ListProviderAppointmentsService {
         },
       );
 
-      console.log('SHAZAM!');
       await this.cacheProvider.save(cacheKey, appointments);
     }
 
